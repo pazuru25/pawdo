@@ -1,0 +1,2 @@
+class PlanSave < ApplicationRecord
+end

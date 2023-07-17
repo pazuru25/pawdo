@@ -1,0 +1,51 @@
+
+.top-page-header {
+  width: 100vw;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.user-name {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  background-color: #ff6b6b;
+  color: #fff;
+  font-size: 48px;
+  padding: 20px 40px;
+  margin: 0 60px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ff4f4f;
+}
+
+.wheader{
+  display: flex;
+}
+
+.side-bar-header{
+  height: 100px;
+  background-color: aqua;
+}
+.main-bar-header{
+  height: 100px;
+  background-color: #ff4f4f;
+}

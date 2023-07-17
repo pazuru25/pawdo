@@ -1,7 +1,7 @@
 # README
+
 ## アプリケーション名
 PawDo
-
 
 ## アプリケーション概要
 ねこの足跡で楽しく効率的なToDo管理をしましょう。
@@ -9,6 +9,7 @@ PawDo
 ユーザーはPCで通知を受けることができ、入力項目の少ないフォームと既存のサービスではないねこの足跡付箋を使用して一覧表示にすることで見やすいのが特徴です。
 
 ## URL
+https://github.com/pazuru25/pawdo.git
 
 ## テスト用アカウント
 
@@ -17,6 +18,7 @@ PawDo
 ## アプリケーションを作成した背景
 
 ## 洗い出した要件
+https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKFApA/edit?usp=sharing
 
 ## 実装した機能についての画像やGIF　及びその説明
 

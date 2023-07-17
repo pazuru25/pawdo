@@ -1,0 +1,70 @@
+
+body {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.top-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  font-size: 200px;
+  color: #333;
+  font-family: 'Cherry Bomb One', cursive;
+}
+
+.button-wrap {
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #ff6b6b;
+  color: #fff;
+  font-size: 48px;
+  padding: 20px 40px;
+  margin: 0 60px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ff4f4f;
+}
+
+.concept {
+  max-width: 900px;
+  margin-top: 50px;
+}
+
+
+.concept h2 {
+  font-size: 50px;
+  color: #333;
+  margin: 50px 0;
+  font-family: 'Cherry Bomb One', cursive;
+}
+
+.concept p {
+  text-align: left;
+  font-size: 25px;
+  color: #666;
+  line-height: 1;
+}
+
+.concept h3 {
+  text-align: left;
+  font-size: 27px;
+  color: #333;
+  margin-bottom: 5px;
+}
