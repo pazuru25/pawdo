@@ -1,0 +1,14 @@
+<div id="main-header">
+  <!-- 右上セクション -->
+
+    <div class="calendar">
+    <ul>
+    <li><a href="#">今日</a></li>
+    <li><a href="#">今週</a></li>
+    <li><a href="#">今月</a></li>
+    </ul>
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "button" %>
+    <% end %>
+  </div>

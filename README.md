@@ -18,7 +18,7 @@ https://github.com/pazuru25/pawdo.git
 ## アプリケーションを作成した背景
 
 ## 洗い出した要件
-https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKFApA/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1-CJyA0ZN45CK4G6PCuvimzAdl1_Cet-71AqdXq-rWwA/edit?usp=sharing
 
 ## 実装した機能についての画像やGIF　及びその説明
 
@@ -26,7 +26,9 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 
 ## データベース設計
 
+
 ## 画面遷移図
+
 
 ## 開発環境
 - フロントエンド
