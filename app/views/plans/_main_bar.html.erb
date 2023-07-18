@@ -1,4 +1,9 @@
-<div id="main-bar">
-  <!-- 右下セクション -->
-  
+<div id="main-bar" class="main-content">
+  <% if @show_form %>
+    <%= render partial: 'form' %>
+  <% else %>
+
+    <!-- デフォルトメインバー -->
+    <h1>TODOアプリ</h1>
+  <% end %>
 </div>

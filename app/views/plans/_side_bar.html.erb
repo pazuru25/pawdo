@@ -1,10 +1,11 @@
- <div id="side-bar">
-    <!-- 左下セクション -->
-    <div class="side-content">
+<!-- _side_bar.html.erb -->
+
+<div id="side-bar">
+  <div class="side-content">
     <ul>
-      <li><a href="#">＋予定作成</a></li>
+      <li><%= link_to '＋予定作成', new_plan_path, remote: true, id: 'create-plan-link' %></li>
       <li><a href="#">TODO</a></li>
       <li><a href="#">繰り返し予定</a></li>
     </ul>
-    </div>
   </div>
+</div>

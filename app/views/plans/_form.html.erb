@@ -1,0 +1,74 @@
+<head>
+  <title>予定入力フォーム</title>
+<%= stylesheet_link_tag 'form', media: 'all'%>
+</head>
+<body>
+  <h1>予定入力フォーム</h1>
+
+
+  <%= form_with model: @plan, url: plans_path do |form| %>
+    <div class="form-group">
+      <label for="scheduleInput">予定手入力:</label>
+      <input type="text" id="scheduleInput" name="schedule" required>
+    </div>
+
+    <div class="form-group">
+      <label for="repeatSelect">予定繰り返し入力:</label>
+      <select id="repeatSelect" name="repeat">
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="datetimeInput">日時:</label>
+      <input type="datetime-local" id="datetimeInput" name="datetime" value="<?php echo date('Y-m-d\TH:i'); ?>" required>
+    </div>
+
+    <div class="form-group">
+      <label>付箋カラー:</label>
+      <div class="color-options">
+        <label>
+          <input type="checkbox" name="color" value="color1" checked>
+          <span class="color color1"></span>
+        </label>
+        <!-- 同様に他の色のチェックボックスとカラープレビューを追加 -->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="notificationSelect">通知選択:</label>
+      <select id="notificationSelect" name="notification">
+        <option value="none">なし</option>
+        <option value="5min">5分前</option>
+        <option value="10min">10分前</option>
+        <option value="1hr">1時間前</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>通知方法:</label>
+      <div class="notification-options">
+        <label>
+          <input type="checkbox" name="notificationMethod" value="sound" checked>
+          音
+        </label>
+        <label>
+          <input type="checkbox" name="notificationMethod" value="background" checked>
+          背景
+        </label>
+        <label>
+          <input type="checkbox" name="notificationMethod" value="popup" checked>
+          ポップアップ
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="detailsTextarea">予定詳細メモ:</label>
+      <textarea id="detailsTextarea" name="details"></textarea>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="登録">
+    </div>
+  <% end %>
+</body>
