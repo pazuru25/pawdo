@@ -7,14 +7,15 @@
 
 
   <%= form_with model: @plan, url: plans_path do |form| %>
+  <div class="form-max">
     <div class="form-group">
-      <label for="scheduleInput">予定手入力:</label>
-      <input type="text" id="scheduleInput" name="schedule" required>
+      <label for="titleInput">予定入力:</label>
+      <input type="text" id="title" name="schedule" required>
     </div>
 
     <div class="form-group">
-      <label for="repeatSelect">予定繰り返し入力:</label>
-      <select id="repeatSelect" name="repeat">
+      <label for="repeatTitle">予定選択入力:</label>
+      <select id="title" name="repeat">
       </select>
     </div>
 
@@ -24,47 +25,62 @@
     </div>
 
     <div class="form-group">
-      <label>付箋カラー:</label>
-      <div class="color-options">
-        <label>
-          <input type="checkbox" name="color" value="color1" checked>
-          <span class="color color1"></span>
-        </label>
-        <!-- 同様に他の色のチェックボックスとカラープレビューを追加 -->
-      </div>
-    </div>
+  <label>付箋カラー:</label>
+  <div class="color-options">
+    <% Color.options.each do |name, value| %>
+      <label>
+        <%= check_box_tag 'color', value, value == 'color1' %>
+        <span class="color <%= value %>"></span>
+      </label>
+    <% end %>
+  </div>
+</div>
 
-    <div class="form-group">
-      <label for="notificationSelect">通知選択:</label>
-      <select id="notificationSelect" name="notification">
-        <option value="none">なし</option>
-        <option value="5min">5分前</option>
-        <option value="10min">10分前</option>
-        <option value="1hr">1時間前</option>
-      </select>
-    </div>
 
-    <div class="form-group">
-      <label>通知方法:</label>
-      <div class="notification-options">
-        <label>
-          <input type="checkbox" name="notificationMethod" value="sound" checked>
-          音
-        </label>
-        <label>
-          <input type="checkbox" name="notificationMethod" value="background" checked>
-          背景
-        </label>
-        <label>
-          <input type="checkbox" name="notificationMethod" value="popup" checked>
-          ポップアップ
-        </label>
-      </div>
-    </div>
+   <div class="form-group">
+  <label>通知選択:</label>
+  <div class="checkbox-group">
+    <% Repetition.options.each do |name, value| %>
+      <label>
+        <%= check_box_tag 'repetition', value %>
+        <%= name %>
+      </label>
+    <% end %>
+  </div>
+</div>
+
+
+   <div class="form-group">
+    <label>繰り返し通知機能:</label>
+      <div class="checkbox-group">
+        <% Recurring.options.each do |name, value| %>
+    <label>
+      <%= check_box_tag 'recurring', value %>
+      <%= name %>
+    </label>
+    <% end %>
+   </div>
+  </div>
+
+
+
+   <div class="form-group">
+  <label>通知方法:</label>
+  <div class="notification-options">
+    <% Notification.options.each do |name, value| %>
+      <label>
+        <%= check_box_tag 'notification', value, value.in?(['sound', 'background', 'popup']) %>
+        <%= name %>
+      </label>
+    <% end %>
+  </div>
+</div>
+
 
     <div class="form-group">
       <label for="detailsTextarea">予定詳細メモ:</label>
       <textarea id="detailsTextarea" name="details"></textarea>
+    </div>
     </div>
 
     <div class="form-group">

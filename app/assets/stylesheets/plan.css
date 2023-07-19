@@ -13,7 +13,8 @@ header{
 #side-header,
 #main-header,
 #side-bar,
-#main-bar {
+#main-bar,
+#form {
   padding: 20px;
 }
 
@@ -72,7 +73,8 @@ ul li {
   padding: 30px;
 }
 
-#main-bar {
+#main-bar,
+#form {
   height: 100vh;
 }
 
@@ -85,7 +87,7 @@ ul li {
   background-color: #ff6b6b;
   color: #fff;
   font-size: 18px;
-  padding: 10px 30px;
+  padding: 10px 20px;
   margin: 0 15px;
   border: none;
   border-radius: 4px;

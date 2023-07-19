@@ -1,4 +1,4 @@
-class Color < ApplicationRecord
+class Color < ActiveHash::Base
   self.data = [
     { id: 1, name: '白', value: 'color1', code: '#fffff9'},
     { id: 2, name: '黄', value: 'color2', code: '#ffffdb' },
@@ -7,7 +7,7 @@ class Color < ApplicationRecord
     { id: 5, name: '青', value: 'color5', code: '#daf6f9' },
     { id: 6, name: '紫', value: 'color6', code: '#f2ecff' },
     { id: 7, name: '桃', value: 'color7', code: '#fff4ff' },
-    { id: 8, name: '赤', value: 'color8', code: '#ff0000' },
+    { id: 8, name: '赤', value: 'color8', code: '#ff6b6b' },
     { id: 9, name: '茶', value: 'color9', code: '#cca6ac' },
     { id: 10, name: '鼠', value: 'color10', code: '#efefef' }
   ]
@@ -21,7 +21,10 @@ class Color < ApplicationRecord
     color ? color[:code] : nil
   end
 
-  
   include ActiveHash::Associations
   has_many :plans
+end
+
+class Plan < ApplicationRecord
+  belongs_to :color
 end
