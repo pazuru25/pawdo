@@ -3,9 +3,9 @@
 
     <div class="calendar">
     <ul>
-    <li><a href="#">今日</a></li>
-    <li><a href="#">今週</a></li>
-    <li><a href="#">今月</a></li>
+      <li><%= link_to "今日", events_path(view: "today") %></li>
+      <li><%= link_to "今週", events_path(view: "week") %></li>
+      <li><%= link_to "今月", events_path(view: "month") %></li>
     </ul>
     </div>
     <% if user_signed_in? %>

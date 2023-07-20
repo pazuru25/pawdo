@@ -9,6 +9,7 @@ class CreatePlans < ActiveRecord::Migration[7.0]
       t.integer :repetition_id,      null: false
       t.integer :recurring_id,       null: false
       t.integer :notification_id,    null: false
+      t.datetime :start_time,        null: false
       t.references :user,            null: false, foreign_key: true
       t.timestamps
     end

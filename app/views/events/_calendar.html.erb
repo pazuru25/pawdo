@@ -1,0 +1,7 @@
+<% if @view == "today" %>
+  <%= render "today_calendar" %>
+<% elsif @view == "week" %>
+  <%= render "week_calendar" %>
+<% else %>
+  <%= render "month_calendar" %>
+<% end %>

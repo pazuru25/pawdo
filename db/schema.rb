@@ -10,14 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_14_083613) do
-  create_table "colors", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "plan_saves", charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_07_14_083025) do
+  create_table "plan_saves", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -25,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_083613) do
     t.index ["user_id"], name: "index_plan_saves_on_user_id"
   end
 
-  create_table "plans", charset: "utf8mb4", force: :cascade do |t|
+  create_table "plans", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.integer "plan_save_id", null: false
     t.integer "schedule_date", null: false
@@ -34,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_14_083613) do
     t.integer "repetition_id", null: false
     t.integer "recurring_id", null: false
     t.integer "notification_id", null: false
+    t.datetime "start_time", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
