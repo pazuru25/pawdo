@@ -1,3 +1,10 @@
-<%= month_calendar do |date| %>
+<%= month_calendar(attribute: :start_at, events: @plans) do |date, plans| %>
   <%= date.day %>
+
+  <% plans.each do |plan| %>
+    <div>
+      <%= plan.place %>
+    </div>
+  <% end %>
+
 <% end %>

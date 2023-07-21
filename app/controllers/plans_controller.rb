@@ -16,7 +16,7 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to plans_path, notice: 'Plan created successfully.'
+      redirect_to plans_path, notice: '予定が登録されました。'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PlansController < ApplicationController
 
   def update
     if @plan.update(plan_params)
-      redirect_to @plan, notice: 'Plan was successfully updated.'
+      redirect_to @plan, notice: '更新されました。'
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class PlansController < ApplicationController
 
   def destroy
     @plan.destroy
-    redirect_to plans_url, notice: 'Plan was successfully destroyed.'
+    redirect_to plans_url, notice: '削除されました。'
   end
 
   private
