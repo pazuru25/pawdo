@@ -1,6 +1,6 @@
 class Plan < ApplicationRecord
   belongs_to :user
-  belongs_to :color
+  belongs_to :plan_save
 
   validates :title,              presence: true
   validates :schedule_date,      presence: true

@@ -19,17 +19,23 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="datetimeInput">日時:</label>
-      <input type="datetime-local" id="datetimeInput" name="datetime" value="<?php echo date('Y-m-d\TH:i'); ?>" required>
-    </div>
+   <div class="form-group">
+  <label for="dateInput">日付:</label>
+  <input type="date" id="schedule_date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
+</div>
+
+<!-- 時刻の設定 -->
+<div class="form-group">
+  <label for="timeInput">時刻:</label>
+  <input type="time" id="schedule_time" name="time" value="<?php echo date('H:i'); ?>" required>
+</div>
 
     <div class="form-group">
   <label>付箋カラー:</label>
   <div class="color-options">
     <% Color.options.each do |name, value| %>
       <label>
-        <%= check_box_tag 'color', value, value == 'color1' %>
+        <%= radio_button_tag 'color', value, value == 'color1' %>
         <span class="color <%= value %>"></span>
       </label>
     <% end %>

@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
   has_many :plans
+  has_many :plan_saves
 
   validates :name, presence: true
 
