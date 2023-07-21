@@ -3,12 +3,13 @@
 
     <div class="calendar">
     <ul>
-      <li><%= link_to "今日", events_path(view: "today") %></li>
-      <li><%= link_to "今週", events_path(view: "week") %></li>
-      <li><%= link_to "今月", events_path(view: "month") %></li>
+      <li><%= link_to "今日", plans_path(view: "today") %></li>
+      <li><%= link_to "今週", plans_path(view: "week") %></li>
+      <li><%= link_to "今月", plans_path(view: "month") %></li>
     </ul>
-    </div>
+    
     <% if user_signed_in? %>
       <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "button" %>
     <% end %>
+  </div>
   </div>

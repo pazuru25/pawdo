@@ -6,6 +6,7 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.all
+    @view = params[:view]
   end
 
   def new
