@@ -1,3 +1,15 @@
-<%= week_calendar do |date| %>
+<%= week_calendar do |date, plans| %>
   <%= date.day %>
+
+   <% plans_in_day = @plans.select { |plan| plan.schedule_date.to_date == date.to_date }.sort_by(&:schedule_time) %>
+
+  <% if plans_in_day.present? %>
+    
+    <% plans_in_day.each do |plan| %>
+      <div class="plan-title2">
+      <%= image_tag "nikukyu3.png", class: "paw-image" %>
+        <%= plan.schedule_time %> <%= plan.title %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

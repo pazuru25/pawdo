@@ -8,7 +8,7 @@ body {
 
 .container {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
@@ -27,6 +27,9 @@ h1 {
 .notification-list li {
   list-style: none;
   margin-bottom: 5px;
+  font-size: 21px;
+  font-weight: bold;
+  color: #ff6b6b;
 }
 
 .notification-list li:before {
@@ -41,14 +44,37 @@ h1 {
 
 /* 予定入力ラベルのスタイル */
 .input-label {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #333;
 }
 
 /* 予定タイトルのスタイル */
 .plan-title {
-  font-size: 24px;
-  color: #ff6600;
-  /* 他のスタイルを追加 */
+  font-size: 21px;
+  color: #ff6b6b;
+}
+
+
+.color-sample {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.form-button {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
 }

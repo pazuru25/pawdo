@@ -1,10 +1,14 @@
-<%= month_calendar(attribute: :start_at, events: @plans) do |date, plans| %>
-  <%= date.day %>
-
-  <% plans.each do |plan| %>
-    <div>
-      <%= plan.place %>
-    </div>
+<%= month_calendar(attribute: :schedule_date, events: @plans) do |date, plans| %>
+  <%= link_to plans_path(selected_date: date.to_date), class: "calendar-date" do %>
+    <%= date.day %>
   <% end %>
 
+  <% if plans.present? %>
+    <% first_plan = plans.first %>
+    <div class="plan-title3">
+      <%= link_to plans_path(selected_date: date.to_date), class: "paw-link" do %>
+        <%= image_tag "nikukyu3.png", class: "paw-image2" %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

@@ -45,6 +45,11 @@ class PlansController < ApplicationController
 
   def todo
   end
+  
+  def dairy_calendar
+    selected_date = params[:selected_date]
+    @plans = Plan.where(schedule_date: selected_date.to_date)
+  end
 
   private
   def set_beginning_of_week
@@ -58,6 +63,4 @@ class PlansController < ApplicationController
   def plan_params
     params.require(:plan).permit(:title, :schedule_date, :schedule_time, :color_id, :repetition_id, :recurring_id, :memo, notification: []).merge(user_id: current_user.id)
   end
-  
-  
 end
