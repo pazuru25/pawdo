@@ -1,6 +1,7 @@
 class Plan < ApplicationRecord
+  serialize :notification, Array
   belongs_to :user
-  belongs_to :plan_save
+
 
   validates :title,              presence: true
   validates :schedule_date,      presence: true

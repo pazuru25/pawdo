@@ -20,11 +20,4 @@ class Color < ActiveHash::Base
     color = find_by(value: value)
     color ? color[:code] : nil
   end
-
-  include ActiveHash::Associations
-  has_many :plans
-end
-
-class Plan < ApplicationRecord
-  belongs_to :color
 end

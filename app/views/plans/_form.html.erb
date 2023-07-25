@@ -1,91 +1,74 @@
-<head>
-  <title>予定入力フォーム</title>
-<%= stylesheet_link_tag 'form', media: 'all'%>
-</head>
-<body>
-  <h1>予定入力フォーム</h1>
-
-
-  <%= form_with url: plans_path do |form| %>
+<%= form_with model: @plan, url: plans_path do |form| %>
   <div class="form-max">
     <div class="form-group">
       <p>予定入力:</p>
-      <input type="text" id="title" name="title" required>
+      <%= form.text_field :title, required: true %>
     </div>
 
     <div class="form-group">
       <p>予定選択入力:</p>
-      <select id="plan_save" name="plan_save">
-      </select>
+      <%= form.select :schedule_date, options_for_select([["Option 1", "value1"], ["Option 2", "value2"]]), required: true %>
     </div>
 
-   <div class="form-group">
-  <p>日時:</p>
-  <input type="date" id="schedule_date" name="schedule_date" value="<?php echo date('Y-m-d'); ?>" required>
-  <input type="time" id="schedule_time" name="schedule_time" value="<?php echo date('H:i'); ?>" required>
-</div>
+    <div class="form-group">
+      <p>日時:</p>
+      <%= form.date_field :schedule_date, value: Date.today, required: true %>
+      <%= form.time_field :schedule_time, value: Time.now, required: true %>
+    </div>
 
-<div class="form-group">
-  <p>付箋カラー:</p>
-  <div class="color-options">
-    <% Color.options.each do |name, value| %>
-      <p>
-        <%= radio_button_tag 'color', value, value == 'color1' %>
-        <span class="color <%= value %>"></span>
-      </p>
-    <% end %>
-  </div>
-</div>
+    <div class="form-group">
+      <p>付箋カラー:</p>
+      <div class="color-options">
+        <% Color.options.each do |name, value| %>
+          <p>
+            <%= form.radio_button :color_id, value, checked: value == 'color1' %>
+            <span class="color <%= value %>"></span>
+          </p>
+        <% end %>
+      </div>
+    </div>
 
+    <div class="form-group">
+      <p>事前通知:</p>
+      <div class="checkbox-group">
+        <% Repetition.options.each do |name, value| %>
+          <p>
+            <%= form.radio_button :repetition_id, value %>
+            <%= name %>
+          </p>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="form-group">
-  <p>通知選択:</p>
-  <div class="checkbox-group">
-    <% Repetition.options.each do |name, value| %>
-      <p>
-        <%= radio_button_tag 'repetition', value %>
-        <%= name %>
-      </p>
-    <% end %>
-  </div>
-</div>
-
-
-   <div class="form-group">
-    <p>繰り返し通知機能:</p>
+    <div class="form-group">
+      <p>繰り返し通知機能:</p>
       <div class="checkbox-group">
         <% Recurring.options.each do |name, value| %>
-    <p>
-      <%= radio_button_tag 'recurring', value %>
-      <%= name %>
-    </p>
-    <% end %>
-   </div>
-  </div>
+          <p>
+            <%= form.radio_button :recurring_id, value %>
+            <%= name %>
+          </p>
+        <% end %>
+      </div>
+    </div>
 
-
-
-   <div class="form-group">
+    <div class="form-group">
   <p>通知方法:</p>
   <div class="notification-options">
-    <% Notification.options.each do |name, value| %>
-      <p>
-        <%= check_box_tag 'notification', value, value.in?(['sound', 'background', 'popup']) %>
-        <%= name %>
-      </p>
+    <% Notification.options.each do |option| %>
+      <%= check_box_tag 'plan[notification][]', option[1], @plan.notification.include?(option[1]), checked: true %>
+      <%= label_tag "plan_notification_#{option[1]}", option[0] %><br>
     <% end %>
   </div>
 </div>
 
-
     <div class="form-group">
-      <p for="detailsTextarea">予定詳細メモ:</p>
-      <textarea id="detailsTextarea" name="details"></textarea>
+      <p>予定詳細メモ:</p>
+      <%= form.text_area :memo %>
     </div>
-    </div>
+  </div>
 
-    <div class="form-group">
-      <%= form.submit "登録", class: "button" %>
-    </div>
-  <% end %>
-</body>
+  <div class="form-group">
+    <%= form.submit "登録", class: "button" %>
+  </div>
+<% end %>
