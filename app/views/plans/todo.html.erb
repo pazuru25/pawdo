@@ -1,9 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TODOページ</title>
+  <title>TODO一覧</title>
+
+  <style>
+  h1 {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0 0 20px;
+    }
+    /* 付箋のスタイル */
+    .sticky-note {
+      width: 200px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #000000;
+      position: relative;
+    }
+
+    /* 完了マークのスタイル */
+     .completed-mark {
+      position: absolute;
+      top: 13px;
+      right: 5px;
+      /* 以下の行を追加して肉球の画像を設定 */
+      background-image: url("/assets/nikukyu3.png");
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    /* タイトルと日時のスタイル */
+    .title {
+      font-weight: bold;
+    }
+
+    .datetime {
+      margin-top: 5px;
+      color: #666;
+    }
+
+      @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blinking {
+      animation: blink 1s infinite; 
+  </style>
+
 </head>
 <body>
-TODO
+  <h1>TODO一覧</h1>
+  <p>完了したら肉球をクリックで削除</p>
+  <p>ページを更新すると予定が一覧に戻ります</p>
+<div id="todo-list">
+  <% @today_plans.reverse_each do |plan| %>
+    <div class="sticky-note" data-schedule-date="<%= plan.schedule_date %>" data-schedule-time="<%= plan.schedule_time %>" style="background-color: <%= Color.code(plan.color_id) %>;">
+      <div class="completed-mark">✔</div>
+      <div class="title"><%= plan.title %></div>
+      <div class="datetime"><%= plan.schedule_date %> <%= plan.schedule_time %></div>
+    </div>
+    <% end %>
+    </div>
+
+<audio id="notificationSound">
+  <source src="/assets/audio/Countdown03-1.mp3" type="audio/mpeg">
+</audio>
+
+
+  <script>
+    const completedMarks = document.querySelectorAll('.completed-mark');
+    completedMarks.forEach(mark => {
+      mark.addEventListener('click', (event) => {
+        const planId = event.currentTarget.dataset.planId;
+        if (confirm('この予定をTODO一覧から削除しますか？')) {
+          const stickyNote = event.currentTarget.parentElement;
+          stickyNote.style.display = 'none';
+        }
+      });
+    });
+
+    function playNotificationSound() {
+      const audioElement = document.getElementById('notificationSound');
+      audioElement.play();
+    }
+
+    function checkScheduledItems() {
+      const currentDate = new Date();
+
+      const stickyNotes = document.querySelectorAll('.sticky-note');
+      stickyNotes.forEach(stickyNote => {
+        const scheduleDate = new Date(stickyNote.dataset.scheduleDate);
+        const scheduleTime = stickyNote.dataset.scheduleTime;
+        const scheduleDateTime = new Date(`${scheduleDate.toDateString()} ${scheduleTime}`);
+
+        if (currentDate >= scheduleDateTime) {
+          playNotificationSound();
+
+          // 点滅のクラスを追加
+          stickyNote.classList.add('blinking');
+        } else {
+          // 点滅のクラスを解除
+          stickyNote.classList.remove('blinking');
+        }
+      });
+
+      setTimeout(checkScheduledItems, 60000); // 60秒後に再度実行
+    }
+
+    window.addEventListener('load', checkScheduledItems);
+  </script>
 </body>
 </html>

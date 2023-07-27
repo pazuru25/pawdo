@@ -1,16 +1,10 @@
-
-body {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .top-page {
+  background-color: #f9f9f9;
+  height: 100%;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 

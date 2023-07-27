@@ -44,11 +44,11 @@ class PlansController < ApplicationController
   end
 
   def todo
+    @today_plans = Plan.where(schedule_date: Date.today)
   end
-  
-  def dairy_calendar
-    selected_date = params[:selected_date]
-    @plans = Plan.where(schedule_date: selected_date.to_date)
+  def countdown_sound
+    # オーディオファイルを返す
+    send_file "#{Rails.root}/path/to/Countdown03-1.mp3", type: 'audio/mpeg', disposition: 'inline'
   end
 
   private

@@ -8,7 +8,7 @@
     <% plans_in_day.each do |plan| %>
       <div class="plan-title2">
       <%= image_tag "nikukyu3.png", class: "paw-image" %>
-        <%= plan.schedule_time %> <%= plan.title %>
+        <%= link_to "#{plan.schedule_time} #{plan.title}", plan_path(plan) %>
       </div>
     <% end %>
   <% end %>

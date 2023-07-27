@@ -1,15 +1,23 @@
-<div id="main-header">
-  <!-- 右上セクション -->
-
-    <div class="calendar">
+<div class="main">
+  <div class="header">
+    <a href="/plans" class="logo"><%= image_tag "nikukyu1.png",:width => '30', :height => '30' %>PawDo<%= image_tag "nikukyu1.png",:width => '30', :height => '30' %></a>
+  </div>
+  <div class="list">
     <ul>
-      <li><%= link_to "今日", plans_path(view: "today") %></li>
-      <li><%= link_to "今週", plans_path(view: "week") %></li>
-      <li><%= link_to "今月", plans_path(view: "month") %></li>
+      <li><%= link_to '予定作成', new_plan_path, remote: true, id: 'create-plan-link', class: "button2" %></li>
+      <li><%= link_to "TODO  ", todo_path, target: "_blank", class: "button2"  %><%= image_tag "popwindow.jpeg",:width => '14', :height => '14' %></li>
     </ul>
-    
+  </div>
+  <div class="calendar">
+    <ul>
+      <li><%= link_to "今日", plans_path(view: "today"), class: "button2"  %></li>
+      <li><%= link_to "今週", plans_path(view: "week"), class: "button2"  %></li>
+      <li><%= link_to "今月", plans_path(view: "month"), class: "button2"  %></li>
+    </ul>
+  </div>
+  <div class="logout">
     <% if user_signed_in? %>
       <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "button" %>
     <% end %>
   </div>
-  </div>
+</div>

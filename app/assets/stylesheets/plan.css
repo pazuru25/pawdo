@@ -1,97 +1,33 @@
-header{
+.cont{
   display: flex;
+  flex-direction: column;
 }
 
-.left-container {
- margin: 0;
- padding: 0;
-}
-
-.right-container {
-  width: 100%;
-}
-
-#side-header,
-#main-header,
-#side-bar,
-#main-bar,
-#form {
-  padding: 20px;
-}
-
-#side-header {
-  width: 300px;
-  height: 100px;
+.main{
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  background-color:#fff0f5
-}
-
-#main-header {
+  justify-content: space-around;
   border: solid #fff0f5;
-  border-width:4px 0 4px 0;
-  height: 90px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.calendar{
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 50px;
+  border-width:4px;
 }
 
 ul {
-  list-style:none;
-  margin: 0;
-  padding: 0 20px;
-  }
-  
-ul li {
-  display: inline-block;
-  padding: 0 10px;
-  }
-
-#side-bar {
-  width: 300px;
-  height: 100vh;
-  background-color: #fff0f5;
-}
-
-.side-content{
-  font-size: 20px;
-}
-
-.side-content ul {
   display: flex;
-  flex-direction: column;
-  padding: 0 20px 0 40px;
-}
+  list-style: none;
+  font-size: 20px;
+  }
 
-.side-content li {
-  padding: 30px;
-}
-
-#main-bar,
-#form {
-  height: 100vh;
-}
 
 .button-wrap {
   margin: 0;
 }
 
 .button {
-  display: inline-block;
   background-color: #ff6b6b;
   color: #fff;
   font-size: 18px;
   padding: 10px 20px;
-  margin: 0 15px;
+  margin: 20px 0 20px 40px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -103,6 +39,22 @@ ul li {
   background-color: #ff4f4f;
 }
 
+.button2 {
+  background-color: #7fbfff;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 20px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button2:hover {
+  background-color: #7fbfff;
+}
 a {
   text-decoration: none;
 }
@@ -126,10 +78,26 @@ a {
 }
 
 .plan-title2{
-  font-size: 14px;
+  font-size: 16px;
   color: #ff6b6b;
 }
 
 .plan-title3{
   text-align: center;
+}
+
+.howto {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 20px;
+}
+
+.calendar-title{
+  font-size: 30px;
+}
+
+a{
+  font-size: 20px;
+  color: #ff6b6b;
 }
