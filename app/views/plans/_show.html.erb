@@ -75,7 +75,7 @@
   </div>
   <div class="form-button">
   <%= link_to "修正", edit_plan_path(@plan), class: "button" %>
-  <%= link_to "削除", plan_path(@plan), data: {turbo_method: "destroy", turbo_confirm: "削除しますか？"}, class: "button", id: "delete-button"%>
+  <%= link_to "削除", plan_path(@plan), data: {turbo_method: :delete, turbo_confirm: "削除しますか？"}, class: "button", id: "delete-button"%>
 </div>
 </body>
 </html>

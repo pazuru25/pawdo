@@ -40,16 +40,13 @@ class PlansController < ApplicationController
 
   def destroy
     @plan.destroy
-    redirect_to plans_url, notice: '削除されました。'
+    redirect_to plans_path, notice: '削除されました。'
   end
 
   def todo
     @today_plans = Plan.where(schedule_date: Date.today)
   end
-  def countdown_sound
-    # オーディオファイルを返す
-    send_file "#{Rails.root}/path/to/Countdown03-1.mp3", type: 'audio/mpeg', disposition: 'inline'
-  end
+  
 
   private
   def set_beginning_of_week
