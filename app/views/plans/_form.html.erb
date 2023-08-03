@@ -24,30 +24,6 @@
       </div>
     </div>
 
-    <div class="form-group">
-    <p>事前通知:</p>
-    <div class="checkbox-group">
-      <% Repetition.options.each do |name, value| %>
-        <p>
-          <%= form.radio_button :repetition_id, value, checked: value == 'none' %>
-          <%= name %>
-        </p>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <p>繰り返し通知機能:</p>
-    <div class="checkbox-group">
-      <% Recurring.options.each do |name, value| %>
-        <p>
-          <%= form.radio_button :recurring_id, value, checked: value == 'none' %>
-          <%= name %>
-        </p>
-      <% end %>
-    </div>
-  </div>
-
   <div class="form-group">
   <p>通知方法:</p>
   <div class="notification-options">

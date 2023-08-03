@@ -1,3 +1,4 @@
+<% Time.use_zone('Tokyo') do %>
 <%= calendar(number_of_days: 1) do |date, plans| %>
   <%= date.day %>
 
@@ -11,4 +12,5 @@
       </div>
     <% end %>
   <% end %>
+<% end %>
 <% end %>

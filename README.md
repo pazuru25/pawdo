@@ -31,17 +31,16 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 ## 実装した機能についての画像やGIF　及びその説明
 ・予定入力ボタン
 ・予定入力フォーム
-（予定、予定時間、色分け、PCとスマホへのリマインド表示チェック）
+（予定、予定時間、色分け、PCへのリマインド表示チェック）
 
 ## 実装予定の機能
-現在、カレンダー表示機能を実装中。
-今後、通知機能と繰り返しタイトル機能を実装予定。
+今後、ポップアップ風通知機能を実装予定。
 
 ## データベース設計
-[![Image from Gyazo](https://i.gyazo.com/85d0b5f9935f76b87c8c48ad14f87b99.png)](https://gyazo.com/85d0b5f9935f76b87c8c48ad14f87b99)
+[![Image from Gyazo](https://i.gyazo.com/ffd4c3866cfa4343a5ebe2bb8f870dc2.png)](https://gyazo.com/ffd4c3866cfa4343a5ebe2bb8f870dc2)
 
 ## 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/09dcfbe40bf776d3c215ff63d241d430.png)](https://gyazo.com/09dcfbe40bf776d3c215ff63d241d430)
+[![Image from Gyazo](https://i.gyazo.com/990f141051908c45b8304306bbb01836.png)](https://gyazo.com/990f141051908c45b8304306bbb01836)
 
 
 ## 開発環境
