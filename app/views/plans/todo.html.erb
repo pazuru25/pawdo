@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TODO一覧</title>
+
+  <style>
+  h1 {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0 0 20px;
+    }
+    /* 付箋のスタイル */
+    .sticky-note {
+      width: 200px;
+      padding: 20px;
+      margin: 15px;
+      border: 1px solid #000000;
+      position: relative;
+    }
+
+    /* 完了マークのスタイル */
+     .completed-mark {
+      position: absolute;
+      top: 13px;
+      right: 5px;
+      /* 以下の行を追加して肉球の画像を設定 */
+      background-image: url("/assets/nikukyu3.png");
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    /* タイトルと日時のスタイル */
+    .title {
+      font-weight: bold;
+    }
+
+    .datetime {
+      margin-top: 5px;
+      color: #666;
+    }
+
+    .nowtime{
+      padding: 20px 0;
+      font-size: 18px;
+
+    }
+
+      @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .blinking {
+      animation: blink 1s infinite; 
+  </style>
+
+</head>
+<body>
+  <h1>TODO一覧</h1>
+  <p>完了したら肉球をクリックで削除</p>
+  <p>ページを更新すると予定が一覧に戻ります</p>
+  <div class="nowtime">
+  <p>現在時刻：</p>
+  <p id="current-time"></p>
+  </div>
+ <div id="todo-list">
+    <% @today_plans.sort_by { |plan| [plan.schedule_date, plan.schedule_time] }.each do |plan| %>
+      <div class="sticky-note" data-schedule-date="<%= plan.schedule_date %>" data-schedule-time="<%= plan.schedule_time %>" style="background-color: <%= Color.code(plan.color_id) %>;">
+        <div class="completed-mark"></div>
+        <div class="title"><%= plan.schedule_time %>　<%= plan.title %></div>
+      </div>
+    <% end %>
+    </div>
+
+  <script>
+     // 曜日の日本語表記を取得する関数
+    function getJapaneseDayOfWeek(dayOfWeek) {
+      const days = ["日", "月", "火", "水", "木", "金", "土"];
+      return days[dayOfWeek];
+    }
+
+    // 現在の日時を表示する関数
+    function showCurrentTime() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+      const dayOfWeek = getJapaneseDayOfWeek(now.getDay());
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const currentTimeString = `${month}月${date}日（${dayOfWeek}） ${hours}:${minutes}:${seconds}`;
+      document.getElementById('current-time').textContent = currentTimeString;
+    }
+
+    // 1秒ごとに現在の日時を更新するためのタイマー
+    setInterval(showCurrentTime, 1000);
+
+// 予定の時間が来たかを確認して、付箋を点滅させる関数
+function checkAndBlinkStickyNotes() {
+  const stickyNotes = document.querySelectorAll('.sticky-note');
+  stickyNotes.forEach((note) => {
+    const scheduleDate = note.dataset.scheduleDate;
+    const scheduleTime = note.dataset.scheduleTime;
+    const scheduleDateTime = new Date(`${scheduleDate} ${scheduleTime}`);
+
+    if (Date.now() >= scheduleDateTime) {
+      note.classList.add('blinking');
+    } else {
+      note.classList.remove('blinking');
+    }
+  });
+}
+
+// 付箋を削除するための関数
+function deleteStickyNote() {
+  const confirmation = confirm("この付箋を削除しますか？");
+  if (confirmation) {
+    const stickyNote = this.closest('.sticky-note');
+    stickyNote.remove();
+  }
+}
+
+// 定期的に付箋を点滅させるための関数
+function startIntervalForBlinking() {
+  checkAndBlinkStickyNotes();
+  setInterval(checkAndBlinkStickyNotes, 1000); // 1秒ごとに点滅を確認
+}
+
+// イベントリスナーを追加し、ページロード時に必要な関数を呼び出す
+window.addEventListener('load', () => {
+  startIntervalForBlinking();
+
+  const pawMarks = document.querySelectorAll('.completed-mark');
+  pawMarks.forEach((pawMark) => {
+    pawMark.addEventListener('click', deleteStickyNote);
+  });
+});
+
+  </script>
+</body>
+</html>

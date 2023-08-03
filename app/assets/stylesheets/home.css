@@ -1,21 +1,15 @@
-
-body {
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .top-page {
+  background-color: #f9f9f9;
+  height: 100%;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
 .logo {
-  font-size: 200px;
+  font-size: 150px;
   color: #333;
   font-family: 'Cherry Bomb One', cursive;
 }
@@ -28,8 +22,8 @@ body {
   display: inline-block;
   background-color: #ff6b6b;
   color: #fff;
-  font-size: 48px;
-  padding: 20px 40px;
+  font-size: 37px;
+  padding: 15px 30px;
   margin: 0 60px;
   border: none;
   border-radius: 4px;

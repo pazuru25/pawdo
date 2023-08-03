@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>予定詳細</title>
+  <%= stylesheet_link_tag 'show', media: 'all'%>
+</head>
+<body>
+  <div class="container">
+    <h1>予定詳細</h1>
+
+    <div class="form-max">
+      <div class="form-group">
+        <p class="input-label">予定:</p>
+        <p class="plan-title"><%= @plan.title %></p>
+      </div>
+
+      <div class="form-group">
+        <p class="input-label">日時:</p>
+        <p class="plan-title"><%= DateTime.parse(@plan.schedule_date).strftime("%Y年%-m月%-d日 (%a)") %><br>
+        <%= DateTime.parse(@plan.schedule_time).strftime("%H:%M") %></p>
+      </div>
+
+  <div class="form-group">
+  <p class="input-label">付箋カラー:</p>
+  <div class="color-sample" style="background-color: <%= Color.code(@plan.color_id) %>;"></div>
+</div>
+
+      <div class="form-group">
+  <p class="input-label">通知方法:</p>
+  <p class="plan-title">
+    <% if @plan.notification.blank? %>
+      なし
+    <% else %>
+      <ul class="notification-list">
+        <% @plan.notification.each do |notification| %>
+          <% case notification %>
+          <% when 'sound' %>
+            <li>音あり</li>
+          <% when 'background' %>
+            <li>点滅あり</li>
+          <% when 'popup' %>
+            <li>ポップアップあり</li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+  </p>
+</div>
+
+
+      <div class="form-group">
+        <p class="input-label">予定詳細メモ:</p>
+        <p class="plan-title"><%= @plan.memo %></p>
+      </div>
+    </div>
+  </div>
+  <div class="form-button">
+  <%= link_to "修正", edit_plan_path(@plan), class: "button" %>
+  <%= link_to "削除", plan_path(@plan), data: {turbo_method: :delete, turbo_confirm: "削除しますか？"}, class: "button", id: "delete-button"%>
+</div>
+</body>
+</html>
