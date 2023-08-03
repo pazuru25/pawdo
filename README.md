@@ -4,6 +4,7 @@
 PawDo
 
 ## アプリケーション概要
+
 ねこの足跡で楽しく効率的なToDo管理アプリです。  
 予定漏れ防止を解決したい個人のため作成しました。  
 ユーザーはPCで通知を受けることができます。  
@@ -58,6 +59,7 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 % cd pawdo.git  
 % bundle install  
 % yarn install  
+
 
 ## 工夫したポイント
 後日記載します
