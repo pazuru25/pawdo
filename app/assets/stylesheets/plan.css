@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1160px) {
+  body {
+    min-width: 1160px;
+  }
+}
 .cont{
   display: flex;
   flex-direction: column;
@@ -6,21 +11,20 @@
 .main{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border: solid #fff0f5;
   border-width:4px;
 }
 
 ul {
   display: flex;
+  justify-content:center;
+  align-items:center;
   list-style: none;
   font-size: 20px;
   }
 
 
-.button-wrap {
-  margin: 0;
-}
 
 .button {
   background-color: #ff6b6b;
@@ -55,6 +59,7 @@ ul {
 .button2:hover {
   background-color: #7fbfff;
 }
+
 a {
   text-decoration: none;
 }
