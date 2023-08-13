@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -16,16 +16,15 @@ body {
 }
 
 h1 {
-  text-align: center;
   color: #000000;
 }
 
 .notification-list {
   margin-top: 5px;
+  display: block;
 }
 
 .notification-list li {
-  list-style: none;
   margin-bottom: 5px;
   font-size: 21px;
   font-weight: bold;
@@ -51,10 +50,13 @@ h1 {
 
 /* 予定タイトルのスタイル */
 .plan-title {
+  margin-left: 50px;
   font-size: 21px;
   color: #ff6b6b;
 }
-
+.plan-info {
+  display: inline-block;
+}
 
 .color-sample {
   width: 30px;
@@ -62,7 +64,7 @@ h1 {
   border: 1px solid #000;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-left: 50px;
 }
 
 .form-button {
