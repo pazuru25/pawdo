@@ -23,7 +23,7 @@ PawDo
 
 ## アプリケーションを作成した背景
 自分が別の作業に没頭すると予定を忘れてしまうことが多く、PCでリマインドしてくれるアプリが欲しいと感じました。
-似たようなPCアプリはあるが直感的な入力がしにくく、リマインドに気づきにくいことが多かった為です。
+似たようなPCアプリはあるが本当に簡単な入力ではなく、時間に気づきにくいことが多かった為です。
 スマホアプリは入力しやすいですが、仕事中にスマホをみていないので予定に気付けず、予定が漏れることがありました。
 自分の為に作ってみようと思い、作成しました。
 
@@ -31,15 +31,18 @@ PawDo
 https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKFApA/edit?usp=sharing
 
 ## 実装した機能についての画像やGIF　及びその説明
+・ユーザー登録機能  
+・シンプルカレンダーによるカレンダー表示機能  
 ・予定入力ボタン  
 ・予定入力フォーム  
-（予定、予定時間、色分け、PCへのリマインド表示チェック）
+（予定、予定時間、色分け、メモ）  
+・別タブでのTODO一覧表示、削除  
 
 ## 実装予定の機能
-今後、ポップアップ風通知機能を実装予定。
+実装済み  
 
 ## データベース設計
-[![Image from Gyazo](https://i.gyazo.com/ffd4c3866cfa4343a5ebe2bb8f870dc2.png)](https://gyazo.com/ffd4c3866cfa4343a5ebe2bb8f870dc2)
+[![Image from Gyazo](https://i.gyazo.com/28a96aeacf9c3f1397d014697159a184.png)](https://gyazo.com/28a96aeacf9c3f1397d014697159a184)
 
 ## 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/990f141051908c45b8304306bbb01836.png)](https://gyazo.com/990f141051908c45b8304306bbb01836)
@@ -62,4 +65,5 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 
 
 ## 工夫したポイント
-後日記載します
+手軽に入力できて画面の端で時間になったら点滅通知でリマインドできるアプリを作成しました。
+TODO一覧より削除するとカレンダーからも削除できる様にしました。
