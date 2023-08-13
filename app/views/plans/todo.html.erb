@@ -125,9 +125,40 @@ function deleteStickyNote() {
   const confirmation = confirm("この付箋を削除しますか？");
   if (confirmation) {
     const stickyNote = this.closest('.sticky-note');
+    const scheduleDate = stickyNote.dataset.scheduleDate;
+    const scheduleTime = stickyNote.dataset.scheduleTime;
+
+    // 削除した付箋の情報をローカルストレージに保存
+    const deletedNotes = JSON.parse(localStorage.getItem('deletedNotes')) || [];
+    deletedNotes.push({ scheduleDate, scheduleTime });
+    localStorage.setItem('deletedNotes', JSON.stringify(deletedNotes));
+
     stickyNote.remove();
   }
 }
+
+// ページロード時に呼び出される関数
+window.addEventListener('load', () => {
+  startIntervalForBlinking();
+
+  const deletedNotes = JSON.parse(localStorage.getItem('deletedNotes')) || [];
+
+  const pawMarks = document.querySelectorAll('.completed-mark');
+  pawMarks.forEach((pawMark) => {
+    const stickyNote = pawMark.closest('.sticky-note');
+    const scheduleDate = stickyNote.dataset.scheduleDate;
+    const scheduleTime = stickyNote.dataset.scheduleTime;
+
+    // 削除した付箋の情報がローカルストレージにある場合は非表示にする
+    if (deletedNotes.some(note => note.scheduleDate === scheduleDate && note.scheduleTime === scheduleTime)) {
+      stickyNote.style.display = 'none';
+    } else {
+      stickyNote.style.display = 'block';
+    }
+
+    pawMark.addEventListener('click', deleteStickyNote);
+  });
+});
 
 // 定期的に付箋を点滅させるための関数
 function startIntervalForBlinking() {

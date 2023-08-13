@@ -4,7 +4,6 @@
 PawDo
 
 ## アプリケーション概要
-
 ねこの足跡で楽しく効率的なToDo管理アプリです。  
 予定漏れ防止を解決したい個人のため作成しました。  
 ユーザーはPCで通知を受けることができます。  
@@ -39,7 +38,7 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 ・別タブでのTODO一覧表示、削除  
 
 ## 実装予定の機能
-実装済み  
+時間になったら通知音を鳴らす
 
 ## データベース設計
 [![Image from Gyazo](https://i.gyazo.com/28a96aeacf9c3f1397d014697159a184.png)](https://gyazo.com/28a96aeacf9c3f1397d014697159a184)
@@ -66,4 +65,4 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 
 ## 工夫したポイント
 手軽に入力できて画面の端で時間になったら点滅通知でリマインドできるアプリを作成しました。
-TODO一覧より削除するとカレンダーからも削除できる様にしました。
+TODO一覧から予定を削除してもカレンダーには予定が残る様にしました。
