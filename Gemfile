@@ -80,3 +80,7 @@ gem 'active_hash'
 gem 'simple_calendar', '~> 3.0'
 gem 'bootstrap'
 gem 'rails-i18n'
+
+group :production do
+  gem 'pg'
+end
