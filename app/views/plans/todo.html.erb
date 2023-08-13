@@ -96,6 +96,7 @@
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
+      
 
       const currentTimeString = `${month}月${date}日（${dayOfWeek}） ${hours}:${minutes}:${seconds}`;
       document.getElementById('current-time').textContent = currentTimeString;

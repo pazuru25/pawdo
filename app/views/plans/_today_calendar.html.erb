@@ -1,16 +1,16 @@
 <% Time.use_zone('Tokyo') do %>
-<%= calendar(number_of_days: 1) do |date, plans| %>
-  <%= date.day %>
+  <%= calendar(number_of_days: 1) do |date, plans| %>
+    <%= date.day %>
 
-  <% plans_in_day = @plans.select { |plan| plan.schedule_date.to_date == date.to_date }.sort_by(&:schedule_time) %>
+    <% plans_in_day = @plans.select { |plan| plan.schedule_date.to_date == date.to_date }.sort_by(&:schedule_time) %>
 
-  <% if plans_in_day.present? %>
-    <% plans_in_day.each do |plan| %>
-      <div class="plan-title2">
-        <%= image_tag "nikukyu3.png", class: "paw-image" %>
-        <%= link_to "#{plan.schedule_time} #{plan.title}", plan_path(plan) %>
-      </div>
+    <% if plans_in_day.present? %>
+      <% plans_in_day.each do |plan| %>
+        <div class="plan-title2">
+          <%= image_tag "nikukyu3.png", class: "paw-image" %>
+          <%= link_to "#{plan.schedule_time.in_time_zone.strftime('%H:%M')} #{plan.title}", plan_path(plan) %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 <% end %>
