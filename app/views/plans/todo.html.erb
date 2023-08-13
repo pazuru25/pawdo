@@ -13,6 +13,7 @@
     }
     /* 付箋のスタイル */
     .sticky-note {
+      display: none;
       width: 200px;
       padding: 20px;
       margin: 15px;
@@ -103,6 +104,26 @@
     // 1秒ごとに現在の日時を更新するためのタイマー
     setInterval(showCurrentTime, 1000);
     
+    window.addEventListener('load', () => {
+    startIntervalForBlinking();
+  
+    const deletedNotes = JSON.parse(localStorage.getItem('deletedNotes')) || [];
+  
+    const pawMarks = document.querySelectorAll('.completed-mark');
+    pawMarks.forEach((pawMark) => {
+      const stickyNote = pawMark.closest('.sticky-note');
+      const scheduleDate = stickyNote.dataset.scheduleDate;
+      const scheduleTime = stickyNote.dataset.scheduleTime;
+  
+      if (deletedNotes.some(note => note.scheduleDate === scheduleDate && note.scheduleTime === scheduleTime)) {
+        stickyNote.style.display = 'none';
+      } else {
+        stickyNote.style.display = 'block';
+      }
+  
+      pawMark.addEventListener('click', deleteStickyNote);
+    });
+  });
 
 // 予定の時間が来たかを確認して、付箋を点滅させる関数
 function checkAndBlinkStickyNotes() {
