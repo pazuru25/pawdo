@@ -58,6 +58,6 @@ class PlansController < ApplicationController
   end
 
   def plan_params
-    params.require(:plan).permit(:title, :schedule_date, :schedule_time, :color_id, :repetition_id, :recurring_id, :memo, notification: []).merge(user_id: current_user.id)
+    params.require(:plan).permit(:title, :schedule_date, :schedule_time, :color_id, :memo).merge(user_id: current_user.id)
   end
 end

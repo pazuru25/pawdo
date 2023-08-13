@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_110702) do
     t.string "schedule_date", null: false
     t.string "schedule_time", null: false
     t.string "color_id", null: false
-    t.string "notification", default: ""
     t.text "memo"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
