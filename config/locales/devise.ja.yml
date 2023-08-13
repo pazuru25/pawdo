@@ -1,0 +1,21 @@
+ja:
+  devise:
+    failure:
+      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      unauthenticated: "続行する前にログインまたは登録してください。"
+      unconfirmed: "続行する前にメールアドレスの確認が必要です。"
+      locked: "アカウントはロックされています。"
+    mailer:
+      confirmation_instructions:
+        subject: "メールアドレス確認の手順"
+      reset_password_instructions:
+        subject: "パスワードリセットの手順"
+      unlock_instructions:
+        subject: "アカウントロック解除の手順"
+    registrations:
+      signed_up: "ようこそ！ 登録が成功しました。"
+      update_needs_confirmation: "アカウントが更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認し、確認リンクに従って新しいメールアドレスを確認してください。"
+      updated: "アカウントが更新されました。"
+    sessions:
+      signed_in: "ログインに成功しました。"
+      signed_out: "ログアウトしました。"
