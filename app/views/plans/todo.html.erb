@@ -86,20 +86,21 @@
       return days[dayOfWeek];
     }
 
-    // 現在の日時を表示する関数
+   // 現在の日時を表示する関数
     function showCurrentTime() {
       const now = new Date();
-      const year = now.getFullYear();
-      const month = now.getMonth() + 1;
-      const date = now.getDate();
-      const dayOfWeek = getJapaneseDayOfWeek(now.getDay());
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      
-
-      const currentTimeString = `${month}月${date}日（${dayOfWeek}） ${hours}:${minutes}:${seconds}`;
-      document.getElementById('current-time').textContent = currentTimeString;
+      const options = {
+        timeZone: 'Asia/Tokyo', // 日本のタイムゾーン
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        weekday: 'short'
+      };
+      const formattedDateTime = new Intl.DateTimeFormat('ja-JP', options).format(now);
+      document.getElementById('current-time').textContent = formattedDateTime;
     }
 
     // 1秒ごとに現在の日時を更新するためのタイマー
