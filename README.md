@@ -12,6 +12,10 @@ PawDo
 ## URL
 https://pawdo.onrender.com
 
+## Basic認証
+ID:admin  
+Pass:3456  
+
 ## テスト用アカウント
 ID:test@test.com  
 Pass:a11111  
@@ -36,7 +40,14 @@ https://docs.google.com/spreadsheets/d/1rqLCxmYMil92SZaM6ogCPJZP726x6PkYQMMLGkKF
 ・予定入力ボタン  
 ・予定入力フォーム  
 （予定、予定時間、色分け、メモ）  
-・別タブでのTODO一覧表示、削除  
+・別タブでのTODO一覧表示、削除    
+
+- TOPページ
+[![Image from Gyazo](https://i.gyazo.com/35b103b1fb15b46e9b9b03493fbc15dc.png)](https://gyazo.com/35b103b1fb15b46e9b9b03493fbc15dc)
+- メインページ
+[![Image from Gyazo](https://i.gyazo.com/a5ef46f0da80b2fc5d0ffbc13244d29b.png)](https://gyazo.com/a5ef46f0da80b2fc5d0ffbc13244d29b)
+- TODO表示画面
+[![Image from Gyazo](https://i.gyazo.com/58ef2fa75fff8a8eae110b8a69198ee2.png)](https://gyazo.com/58ef2fa75fff8a8eae110b8a69198ee2)
 
 ## 実装予定の機能
 時間になったら通知音を鳴らす
